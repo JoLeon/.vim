@@ -224,11 +224,14 @@ snippet div#
 		${2}
 	</div>
 snippet icon
-	<i class="fa fa-${1:icon-name}"></i>
-	${2}
+	<i class="fa fa-${1:icon-name}"></i>${2}
 snippet script
 	<script type="${1:text/javascript}">
 		${2}
+	</script>
+snippet scriptt
+	<script type="${1:text/template}" id="${2:identifier}-tpl">
+		${3}
 	</script>
 snippet {
 	{
@@ -242,3 +245,44 @@ snippet rbq
 	<%= ${1} %>
 snippet rb
 	<% ${1} %>
+snippet href
+	<a href="${1}" style="${2}">${3}</a>
+snippet href#
+	<a href="${1}" id="${2}">${3}</a>
+snippet href.
+	<a href="${1}" class="${2}">${3}</a>
+snippet li
+	<li style="${1}">${2}</li>
+snippet li#
+	<li id="${1}">${2}</li>
+snippet li.
+	<li class="${1}">${2}</li>
+snippet divc
+	<div class="clear"></div>
+snippet modal
+	<div class="${1:modal fade in hide}" id="${2:modal-identifier}">
+		<div class="${3:modal-header}">
+			<div class="modal-title">${4}</div>
+		</div>
+		<div class="${5:modal-body}">
+			${6}
+		</div>
+		<div class="${7:modal-footer}">
+			<a class="btn btn-${8:success} pull-right" ${9:style="margin-left:10px"}>${10:Confirmar}</a>
+			<a class="btn pull-right" ${11:data-dismiss="modal"}>${12:Cerrar}</a>
+		</div>
+	</div>
+snippet control
+	<div class="control-group">
+		<label class="control-label" for="${1:name control field}">${2:label}</label>
+		<div class="controls">
+			${3}
+		</div>
+	</div>
+snippet btn
+	<a href="${1:javascript:void(0)}" class="${2:btn} ${3:btn-}${4:success}">${5}</a>
+snippet istack
+	<span class="fa-stack" style="${1:height:1em;width:1em;line-height:1em}">
+		<i class="fa fa-stack-1x fa-${2:icon}"></i>
+		<i class="fa fa-stack-1x fa-${3:icon}"></i>
+	</span>
