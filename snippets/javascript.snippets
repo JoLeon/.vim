@@ -78,3 +78,49 @@ snippet {
 	{
 		${1}
 	}
+snippet cl
+	console.log(${1});
+snippet BB
+	(function($){
+		window.${1:Nombre} = {};
+		$1.Models = {};
+		$1.Collections = {};
+		$1.Views = {};
+		$1.Instances = {};
+		$1.Variables = {};
+
+		$1.Models.${2:Modelo} = Backbone.Model.extend({
+		})
+
+		$1.Collections.$2s = Backbone.Collection.extend({
+			model: $1.Models.$2,
+			initialize: function(){
+			}
+		})
+
+		$1.Views.$2s = Backbone.View.extend({
+			el: "${3:Elemento}",
+			initialize: function(){
+				this.render();
+			},
+			events: {
+			},
+			render: function(){
+			}
+		})
+
+		$1.Views.$2 = Backbone.View.extend({
+			tagName: "${4:tagName}",
+			template: _.template($("#${5:templateIdentifier}-tpl").html()),
+			initialize: function(){
+			},
+			events: {
+			},
+			render: function(){
+				$(this.el).html(this.template({model: this.model.toJSON()}));
+				return this;
+			}
+		})
+	})(jQuery);
+snippet alert2
+	alert2({clase:"${1:success}", mensaje: "${2}", bloqueante: ${3:false}});${4}

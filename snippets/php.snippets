@@ -217,8 +217,7 @@ snippet div.
 		${2}
 	</div>
 snippet divclear
-	<div class="clearfix"></div>
-	${1}
+	<div class="clearfix"></div>${1}
 snippet div#
 	<div id="${1:name}">
 		${2}
@@ -230,7 +229,7 @@ snippet script
 		${2}
 	</script>
 snippet scriptt
-	<script type="${1:text/template}" id="${2:identifier}-tpl">
+	<script type="${1:text/template}" id="${2:identifier-tpl}">
 		${3}
 	</script>
 snippet {
@@ -287,11 +286,11 @@ snippet istack
 		<i class="fa fa-stack-1x fa-${3:icon}"></i>
 	</span>
 snippet ..
-	<${1:} class="${2}">${3}${4}</$1>
+	<${1:} class="${2}">${3}</$1>${4}
 snippet .#
-	<${1:} class="${2}" id="${3}>${4}${5}</$1>
+	<${1:} class="${2}" id="${3}>${4}</$1>${5}
 snippet .s
-	<${1:} class="${2}" style="${3}" >${4}${5}</$1>
+	<${1:} class="${2}" style="${3}" >${4}</$1>${5}
 snippet tag
 	<${1:}>
 		${2}
@@ -326,6 +325,8 @@ snippet tag#s
 	</$1>
 snippet _tag
 	<${1:}>${2}</$1>
+snippet _TAG
+	<${1:td}>${2}</$1>${3}
 snippet _tag.
 	<${1:} class="${2}">${3}</$1>
 snippet _tag#
@@ -340,3 +341,61 @@ snippet _tag.#s
 	<${1:} class="${2}" id="${3}" style="${4}">${5}</$1>
 snippet _tag#s
 	<${1:} id="${2}" style="${3}">${4}</$1>
+snippet alert
+	<div class="alert alert-${1:info}" style="${2:margin-bottom:0}">
+		${3:<i class="fa fa-}${4:info-circle}${5:"></i>} ${6}
+	</div>
+snippet cl
+	console.log(${1});
+snippet phpq
+	<?php echo ${1}; ?>${2}
+snippet pr
+	print_r("${1}");${2}
+snippet prv
+	print_r(${1});${2}
+snippet BB
+	(function($){
+		window.${1:Nombre} = {};
+		$1.Models = {};
+		$1.Collections = {};
+		$1.Views = {};
+		$1.Instances = {};
+		$1.Variables = {};
+
+		$1.Models.${2:Modelo} = Backbone.Model.extend({
+		})
+
+		$1.Collections.$2s = Backbone.Collection.extend({
+			model: $1.Models.$2,
+			initialize: function(){
+			}
+		})
+
+		$1.Views.$2s = Backbone.View.extend({
+			el: "${3:Elemento}",
+			initialize: function(){
+				this.render();
+			},
+			events: {
+			},
+			render: function(){
+			}
+		})
+
+		$1.Views.$2 = Backbone.View.extend({
+			tagName: "${4:tagName}",
+			template: _.template($("#${5:templateIdentifier}-tpl").html()),
+			initialize: function(){
+			},
+			events: {
+			},
+			render: function(){
+				$(this.el).html(this.template({model: this.model.toJSON()}));
+				return this;
+			}
+		})
+	})(jQuery);
+snippet param
+	$data["${1:param name}"] = $this->configdata->getParameter("$1");
+snippet alert2
+	alert2({clase:"${1:success}", mensaje: "${2}", bloqueante: ${3:false}});${4}
